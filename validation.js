@@ -47,27 +47,36 @@ $(document).ready(function () {
         if ($("#password").val().match(numbers) && $("#password").val().length >= 6) {
             $(".password-warning").css({ 'opacity': '0', 'z-index': '-1' });
             $(".password-success-check").html('<i class="fa fa-check"></i>');
+            if($("#password").val() === $("#password-confirm").val()){
+                $(".password-success-confirm").html('<i class="fa fa-check"></i>')
+            }
         }
         else {
             $(".password-warning").css({ 'opacity': '1', 'z-index': '99' });
+            $(".password-success-confirm").empty()
             $(".password-success-check").empty();
         }
     })
-    $("#password-confirm").keyup(function () {
-        if ($("#password").val() === $("#password-confirm").val()) {
+    var pswConf = function () {
+        if ($("#password").val() === $("#password-confirm").val() && $("#password-confirm").val().length >= 6) {
             $(".password-success-confirm").html('<i class="fa fa-check"></i>')
         }
         else {
             $(".password-success-confirm").empty()
-        }// Passwords match
-    });
+        }
+    };
+    $("#password-confirm")
+        .keyup(pswConf)
+        .focus(pswConf)// Passwords match
+
+
     //On submit prevent everything will be submitted correctly 
     $("#submit-button").click(function (event) {
         if ($("input").val().length <= 6) {
             event.preventDefault();
             alert('Please fill the fields correctly')
         }
-        if($("#password").val() !== $("#password-confirm").val()){
+        if ($("#password").val() !== $("#password-confirm").val()) {
             alert('Passwords do not match');
             event.preventDefault();
         }
