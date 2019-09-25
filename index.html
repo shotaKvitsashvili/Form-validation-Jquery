@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery form validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h1>Jquery form validation</h1>
+
+    <form>
+        <div class="form-input username">
+            <label for="username"><i class="fa fa-user"></i> USERNAME</label>
+             <input type="text" name="username" id="username"  autocomplete="off">
+             <span class="warning"></span>
+             <span class="success-check"></span> 
+        </div>
+        <div class="form-input email">
+            <label for="email"><i class="fa fa-envelope"></i> EMAIL</label> 
+            <input type="email" name="email" id="email"  autocomplete="off" required>
+        </div>
+        <div class="form-input password">
+            <label for="password"><i class="fa fa-key"></i> PASSWORD</label>
+            <input type="password" name="password" id="password"  autocomplete="off">
+            <span class="password-warning"></span>
+            <span class="password-success-check"></span>
+        </div>
+        <div class="form-input password-confirm">
+                <label for="password-confirm"><i class="fa fa-key"></i> CONFIRM YOUR PASSWORD</label>
+            <input type="password" name="password-confirm" id="password-confirm"  autocomplete="off">
+            <span class="password-success-confirm"></span>
+        </div>
+        
+        <button type="submit" id="submit-button">
+            Sign Up
+        </button>
+
+    </form>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="validation.js"></script>
+</body>
+
+</html>

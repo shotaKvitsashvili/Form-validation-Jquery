@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+$mobile: 480px;
+
+@mixin mobile {
+     @media (max-width: #{$mobile}){
+         @content;
+     }
+}
+body {
+  min-height: 100vh;
+}
+h1 {
+  color: rgb(151, 137, 137);
+  margin-top: 50px;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  @include mobile{
+    font-size: 20px;
+  }
+}
+form {
+  width: 80%;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 2px 20px 0px #171212d4;
+  background-color: #dedada;
+  padding: 10px;
+  .fa-check{
+    font-size: 20px;
+    color: green;
+  }
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    position: relative;
+
+    .success-check, .password-success-check, .password-success-confirm{
+      position: absolute;
+      right: 20px;
+      transition: .5s all;
+    }
+    .success-check{
+      top: 15px;
+    }
+    .password-success-check{
+      top: 7px;
+    }
+    .password-success-confirm{
+      top: 7px;
+    }
+    label {
+      color: rgb(99, 93, 93);
+      cursor: text;
+      transition: 0.2s;
+      position: absolute;
+      @include mobile{
+        font-size: 15px;
+      }
+    }
+    .warning {
+      position: absolute;
+      width: 80%;
+      left: 10px;
+      top: 50px;
+      left: 3px;
+      background: white;
+      z-index: 99;
+      padding: 10px;
+      color: red;
+      transition: 0.5s ease-in-out;
+      opacity: 0;
+      &:after {
+        position: absolute;
+        content: "";
+        top: -7px;
+        left: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid white;
+      }
+    }
+    .password-warning{
+      position: absolute;
+      width: 80%;
+      left: 10px;
+      top: 100%;
+      left: 3px;
+      background: white;
+      z-index: 99;
+      padding: 10px;
+      color: red;
+      transition: 0.5s ease-in-out;
+      opacity: 0;
+      &:after {
+        position: absolute;
+        content: "";
+        top: -7px;
+        left: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid white;
+      }
+  }
+  }
+  input {
+    border: none;
+    width: 100%;
+    height: 30px;
+    border-bottom: 3px solid #ccc;
+    background: transparent;
+    color: #4c0b0b;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    width: 100%;
+    padding: 5px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid rgb(129, 116, 116);
+    color: rgb(95, 86, 86);
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      background: rgb(92, 88, 88);
+      color: white;
+    }
+  }
+}
