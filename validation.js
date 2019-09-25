@@ -1,5 +1,6 @@
 $(document).ready(function () {
     //Variables for what to include
+    var pattern = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
     var upperCase = new RegExp('[A-Z]');
     var lowerCase = new RegExp('[a-z]');
     var numbers = new RegExp('[0-9]');
@@ -44,10 +45,10 @@ $(document).ready(function () {
         $(".password-warning").html('Must contain at least 1 number. Must be at least 6 characters long');
     })
     $("#password").keyup(function () {
-        if ($("#password").val().match(numbers) && $("#password").val().length >= 6) {
+        if ($("#password").val().match(pattern) && $("#password").val().length >= 6) {
             $(".password-warning").css({ 'opacity': '0', 'z-index': '-1' });
             $(".password-success-check").html('<i class="fa fa-check"></i>');
-            if($("#password").val() === $("#password-confirm").val()){
+            if ($("#password").val() === $("#password-confirm").val()) {
                 $(".password-success-confirm").html('<i class="fa fa-check"></i>')
             }
         }
@@ -67,8 +68,10 @@ $(document).ready(function () {
     };
     $("#password-confirm")
         .keyup(pswConf)
-        .focus(pswConf)// Passwords match
-
+        .focus(pswConf)
+    $("#password")
+        .keyup(pswConf)
+    // Passwords match
 
     //On submit prevent everything will be submitted correctly 
     $("#submit-button").click(function (event) {
